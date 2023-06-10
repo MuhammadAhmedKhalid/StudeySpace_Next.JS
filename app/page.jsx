@@ -1,7 +1,10 @@
+import '../styles/home.css'
+
 export default function Home() {
+
     return (
-        <main>
+        <div>
             Study Space
-        </main>
+        </div>
     )
 }
