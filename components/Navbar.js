@@ -1,7 +1,6 @@
 'use client';
 
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,13 +15,30 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { useRouter } from 'next/navigation';
 
 const drawerWidth = 240;
 const navItems = ['About', 'Contact', 'Login'];
 
 function Navbar(props) {
+
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const router = useRouter();
+
+  const navigateTo = (page) => {
+    setCurrentPage(page);
+  };
+
+  useEffect(() => {
+    if(currentPage === 'About') router.push('/about-us');
+    else if (currentPage === 'Contact') router.push('/contact-us');
+    else if (currentPage === 'Login') console.log('Login');
+    else router.push('/');
+  }, [currentPage])
+
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -30,7 +46,7 @@ function Navbar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2 }} onClick={() => navigateTo('home')} style={{cursor: 'pointer'}}>
         Study Space
       </Typography>
       <Divider />
@@ -38,7 +54,7 @@ function Navbar(props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item} onClick={() => navigateTo(item)} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -66,12 +82,14 @@ function Navbar(props) {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            onClick={() => navigateTo('home')}
+            style={{cursor: 'pointer'}}
           >
             Study Space
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
+              <Button key={item} sx={{ color: '#fff' }} onClick={() => navigateTo(item)}>
                 {item}
               </Button>
             ))}

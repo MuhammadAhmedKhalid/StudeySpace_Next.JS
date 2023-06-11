@@ -1,7 +1,12 @@
-body {
-    background-image: url('/images/home_bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+.bg {
+    background-image: url("/images/home_bg.jpg");
+    /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .center {
