@@ -1,5 +1,6 @@
 import '../../styles/contact.css'
 import ContactForm from '@components/ContactForm'
+import Footer from '@components/Footer'
 
 function ContactUs() {
   return (
@@ -18,6 +19,7 @@ function ContactUs() {
         </div>
       </div>
       <ContactForm/>
+      <Footer/>
     </>
   )
 }
