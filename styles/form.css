@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #faf9f7;
 }
 
 .form {
@@ -9,6 +10,7 @@
   padding: 20px;
   border-radius: 4px;
   background: #fff;
+  border: 1px solid #c72e2e;
 }
 
 .input {
