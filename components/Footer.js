@@ -1,8 +1,10 @@
-import React from 'react'
+import '../styles/footer.css'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div style={{background: '#0a002c', height: '200px'}}>
+      <p>Footer</p>
+    </div>
   )
 }
 

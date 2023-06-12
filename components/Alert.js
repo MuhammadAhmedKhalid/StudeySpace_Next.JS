@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import '../styles/alert.css';
 
 function Alert({ type, message }) {
-    console.log('here')
   return (
-    <div className={`alert alert-${type}`}>
+    <div style={{marginTop: '10px'}} className={`alert alert-${type}`}>
       {message}
     </div>
   );
