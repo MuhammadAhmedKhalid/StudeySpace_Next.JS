@@ -17,3 +17,8 @@
   color: white;
   margin-top: 10px;
 }
+
+.rounded-button:hover{
+    background-color: white;
+    color: #c72e2e;
+}

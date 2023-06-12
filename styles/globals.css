@@ -17,8 +17,6 @@ h1 {
 
 p {
     color: white;
-    font-size: 15px;
-    font-weight: 350;
 }
 
 .center {
@@ -37,4 +35,8 @@ p {
 
 .blue-color {
     color: #0a002c
+}
+
+.orange-color {
+    color: #c72e2e;
 }
