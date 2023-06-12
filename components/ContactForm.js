@@ -1,9 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/form.css'
+import Alert from './Alert';
 
 function ContactForm() {
+
+    const [showAlert, setShowAlert] = useState(false)
+
+    useEffect(() => {
+        if(showAlert){
+            setTimeout(() => {
+                setShowAlert(false)
+            }, 3000)
+        }
+    }, [showAlert])
 
     const [formData, setFormData] = useState({
         name: '',
@@ -20,12 +31,12 @@ function ContactForm() {
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
-        alert('Message has been sent successfully.')
+        setShowAlert(true);
         setFormData({ name: '', email: '', message: '' });
       };
 
     return (
-        <div className='container'>
+        <div className='container y-axis'>
             <form onSubmit={handleSubmit} className='form'>
                 <div>
                     <label>Name:</label>
@@ -66,6 +77,9 @@ function ContactForm() {
                 </div>
                 <button type="submit" className='button'>Submit</button>
             </form>
+            {
+                showAlert && <Alert type="success" message="Message has been sent successfully." />
+            }
         </div>
     )
 }

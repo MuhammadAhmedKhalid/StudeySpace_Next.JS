@@ -1,9 +1,10 @@
 .bg {
     background-image: url("/images/home_bg.jpg");
-    height: 100%; 
+    height: 92%; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 60px;
 }
 
 .rounded-button {
