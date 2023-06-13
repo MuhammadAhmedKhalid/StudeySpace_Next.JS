@@ -62,3 +62,31 @@ p {
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
+.left-portion {
+  flex: 1;
+  background-color: #faf9f7;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-portion {
+  flex: 1;
+  background-color: #faf9f7;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-color { 
+  background-color: #faf9f7;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}

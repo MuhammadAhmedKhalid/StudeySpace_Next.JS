@@ -8,34 +8,6 @@
     margin-top: 128px;
 }
 
-.bg-color { 
-    background-color: #faf9f7;
-    height: 100%;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-.left-portion {
-    flex: 1;
-    background-color: #faf9f7;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.right-portion {
-    flex: 1;
-    background-color: #e6e6e6;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .p-alignment {
     margin: 30px;
 }
