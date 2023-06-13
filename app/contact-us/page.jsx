@@ -1,6 +1,5 @@
 import '../../styles/contact.css'
 import ContactForm from '@components/ContactForm'
-import Footer from '@components/Footer'
 
 function ContactUs() {
   return (
@@ -15,11 +14,11 @@ function ContactUs() {
                 We appreciate your interest in our platform and look forward to assisting you!
               </p>
           </div>
-          <div className='contact-bg'/>
+          <div className='right-portion'>
+            <ContactForm/>
+          </div>
         </div>
       </div>
-      <ContactForm/>
-      <Footer/>
     </>
   )
 }

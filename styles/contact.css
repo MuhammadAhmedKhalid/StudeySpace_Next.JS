@@ -1,13 +1,3 @@
-.contact-bg {
-    background-image: url("/images/contact_bg.png");
-    height: 100%;
-    width: 52%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 128px;
-}
-
 .p-alignment {
     margin: 30px;
 }
