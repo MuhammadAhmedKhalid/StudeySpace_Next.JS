@@ -16,3 +16,11 @@
   color: #c72e2e;
   border-color: #c72e2e;
 }
+
+@media (max-width: 768px) {
+  
+  .rounded-button {
+    font-size: smaller;
+  }
+
+}

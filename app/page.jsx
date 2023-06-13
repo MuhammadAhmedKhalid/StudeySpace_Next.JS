@@ -1,32 +1,32 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import '../styles/home.css'
+import HomeContent from '@components/HomeContent';
 
 export default function Home() {
 
     const router = useRouter();
 
+    const isMobile = window.innerWidth <= 768;
+
     return (
-        <div className='container'>
-            <div className='left-portion y-axis'>
-                <h1 className='blue-color' style={{marginBottom: '10px', marginTop: '20px'}}>STUDY SPACE</h1>
-                <p className='blue-color p-alignment'>
-                    Streamline education with our interactive platform for teachers and students.
-                    Connect, collaborate, and learn with ease through our web application that empowers teachers
-                    to create virtual classrooms, assign quizzes, and share assignments while enabling students to join,
-                    attempt quizzes, and submit assignments seamlessly.
-                </p>
-                {/* <p className='blue-color'>Connect, collaborate, and learn with ease through our web application that empowers teachers</p>
-                <p className='blue-color'>to create virtual classrooms, assign quizzes, and share assignments while enabling students to join,</p>
-                <p className='blue-color'>attempt quizzes, and submit assignments seamlessly.</p> */}
-                <button className='rounded-button' onClick={() => router.push('/contact-us')} style={{marginTop: '20px'}}>
-                    Contact Us
-                </button>
+        <>
+        {
+            isMobile ? 
+            <div className='container y-axis' style={{marginBottom: '10px', marginTop: '40px'}}>
+               <HomeContent/>
+                <img src='/images/home_bg1.png' style={{height: '25%'}}/>
             </div>
-            <div className='square right-portion'>
-                <img alt='home_bg' src='/images/home_bg.png' />
+            : 
+            <div className='container'>
+                <div className='left-portion y-axis' style={{marginBottom: '10px', marginTop: '20px'}}>
+                    <HomeContent/>
+                </div>
+                <div className='square right-portion'>
+                    <img alt='home_bg' src='/images/home_bg.png' />
+                </div>
             </div>
-        </div>
+        }
+        </>
     )
 }

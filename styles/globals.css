@@ -97,3 +97,26 @@ p {
 .p-alignment {
   margin: 30px;
 }
+
+@media (max-width: 768px) {
+
+  .container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    background-color: #faf9f7;
+  }
+
+  h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: 575;
+}
+
+p {
+    color: white;
+    font-size: 15px;
+}
+
+}
