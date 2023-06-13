@@ -39,7 +39,7 @@ p {
 }
 
 .blue-color {
-    color: #0a002c
+    color: #0a002c;
 }
 
 .orange-color {
@@ -87,4 +87,13 @@ p {
 .container {
   display: flex;
   height: 100vh;
+}
+
+.square {
+  height: 100%;
+  background-color: rgb(186, 66, 66);
+}
+
+.p-alignment {
+  margin: 30px;
 }

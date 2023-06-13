@@ -1,5 +1,3 @@
-import '../../styles/about.css'
-
 function AboutUs() {
   return (
     <>
@@ -8,7 +6,7 @@ function AboutUs() {
           <div className="left-portion y-axis">
             <h1 className='blue-color'>LET'S LEARN</h1>
             <h1 className='blue-color'>FROM ONLINE</h1>
-              <p className='blue-color p-align'>
+              <p className='blue-color p-alignment'>
                 Welcome to Study Space! We are passionate about revolutionizing education through innovative technology. 
                 Our web application is designed to empower teachers and students by providing a seamless digital learning experience. 
                 With our platform, teachers can effortlessly create virtual classrooms, assign quizzes, and share assignments, 
