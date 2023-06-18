@@ -12,20 +12,18 @@ function ContactUs() {
       {
         isMobile ? 
         <>
-          <div className='bg-color container y-axis'>
+          <div className='container y-axis'>
             <ContactContent/>
           </div>
           <ContactForm/>
         </>
         :
-        <div className='bg-color'>
-          <div className="container">
-            <div className="left-portion y-axis">
-              <ContactContent/>
-            </div>
-            <div className='right-portion'>
-              <ContactForm/>
-            </div>
+        <div className="container">
+          <div className="left-portion y-axis">
+            <ContactContent/>
+          </div>
+          <div className='right-portion'>
+            <ContactForm/>
           </div>
         </div>
       }

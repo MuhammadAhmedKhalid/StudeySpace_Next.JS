@@ -10,20 +10,18 @@ function AboutUs() {
     <>
       {
         isMobile ?
-        <div className="bg-color container y-axis" style={{marginTop: '25px'}}>
+        <div className="container y-axis" style={{marginTop: '25px'}}>
           <AboutContent/>
         </div>
         :
-        <div className='bg-color'>
-          <div className="container">
-            <div className="left-portion y-axis">
+        <div className="container">
+          <div className="left-portion y-axis">
             <AboutContent/>
-            </div>
-            <div className='square right-portion y-axis'>
-              <img alt='fb_icon' src='/images/about_bg.png' style={{marginBottom: '30px'}}/>
-              <p>Empowering teachers with innovative tools to enhance student</p>
-              <p style={{marginBottom: '40px'}}>success and educational outcomes.</p>
-            </div>
+          </div>
+          <div className='square right-portion y-axis'>
+            <img alt='fb_icon' src='/images/about_bg.png' style={{marginBottom: '30px'}}/>
+            <p>Empowering teachers with innovative tools to enhance student</p>
+            <p style={{marginBottom: '40px'}}>success and educational outcomes.</p>
           </div>
         </div>
       }

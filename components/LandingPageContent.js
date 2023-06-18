@@ -1,9 +1,9 @@
 'use client';
 
-import '../styles/home.css'
+import '../styles/landing-page.css'
 import { useRouter } from 'next/navigation';
 
-function HomeContent() {
+function LandingPageContent() {
 
     const router = useRouter();
 
@@ -23,4 +23,4 @@ function HomeContent() {
     )
 }
 
-export default HomeContent
+export default LandingPageContent

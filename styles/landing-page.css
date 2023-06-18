@@ -1,0 +1,26 @@
+.rounded-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #c72e2e;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 400;
+  color: white;
+  margin-top: 10px;
+  border: 2px solid #c72e2e;
+}
+
+.rounded-button:hover{
+  background-color: white;
+  color: #c72e2e;
+  border-color: #c72e2e;
+}
+
+@media (max-width: 768px) {
+  
+  .rounded-button {
+    font-size: smaller;
+  }
+
+}

@@ -33,7 +33,7 @@ function Navbar(props) {
   useEffect(() => {
     if(currentPage === 'About') router.push('/about-us');
     else if (currentPage === 'Contact') router.push('/contact-us');
-    else if (currentPage === 'Login') console.log('Login');
+    else if (currentPage === 'Login') router.push('/home');
     else router.push('/');
   }, [currentPage])
 
