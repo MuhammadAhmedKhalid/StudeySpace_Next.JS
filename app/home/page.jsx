@@ -11,9 +11,6 @@ function Home() {
         {name: 'ISA'}, 
         {name: 'PP'},
         {name: 'Data Warehouse'},
-        {name: 'ISA'}, 
-        {name: 'PP'},
-        {name: 'DW'},
     ]);
 
     return (

@@ -37,14 +37,14 @@
 }
 
 .box {
-    margin-top: 120px;
-    margin-left: 25px;
+    margin-top: 114px;
+    margin-left: 40px;
     cursor: pointer;
 }
 
 .square-box {
-    width: 250px;
-    height: 250px;
+    width: 190px;
+    height: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,11 +54,12 @@
     border-radius: 10px;
     background-color: #ffffff;
     border: 1.5px solid #0a002c;
+    margin-bottom: 15px;
 }
 
 .nested-box {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     margin-bottom: 10px;
     border-radius: 2.5px;
     background-color: #0a002c;
@@ -70,4 +71,10 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+}
+
+.boundary {
+    flex-wrap: wrap;
+    width: 1488px; 
+    justify-content: flex-start;
 }

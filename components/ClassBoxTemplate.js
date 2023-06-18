@@ -3,7 +3,7 @@ import '../styles/home.css'
 
 function ClassBoxTemplate({classes}) {
   return (
-    <div className='bg box x-axis' style={{backgroundColor: 'faf9f7'}}>
+    <div className='bg box x-axis boundary'>
         {
             classes.map((item, index) => (
                 <div className="square-box" key={index}>
