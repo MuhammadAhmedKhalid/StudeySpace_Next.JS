@@ -36,6 +36,38 @@
     border-color: #c72e2e;
 }
 
-@media (max-width: 768px) {
+.box {
+    margin-top: 120px;
+    margin-left: 25px;
+    cursor: pointer;
+}
 
+.square-box {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1.5px solid #0a002c;
+}
+
+.nested-box {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 10px;
+    border-radius: 2.5px;
+    background-color: #0a002c;
+}
+
+.nested-box-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
