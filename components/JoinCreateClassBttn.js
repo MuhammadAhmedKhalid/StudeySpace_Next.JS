@@ -9,7 +9,11 @@ function JoinCreateClassBttn({ joinCreateBttn, setJoinCreateBttn }) {
   }
 
   return (
-    <button className='bttn' style={{backgroundColor: 'faf9f7'}} onClick={handleClick}>
+    <button 
+        className='bttn' 
+        style={{backgroundColor: 'faf9f7', marginTop: '80px', marginRight: '25px'}} 
+        onClick={handleClick}
+      >
         <GroupAddIcon style={{height: '20px', width: '20px', marginRight: '7.5px'}}/>
         Join or create class
     </button>
