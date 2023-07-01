@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import '../../styles/home.css'
 import JoinCreateClassBttn from '@components/JoinCreateClassBttn';
 import ClassBoxTemplate from '@components/ClassBoxTemplate';
+import JoinCreateClass from '@components/JoinCreateClass';
 
 function Home() {
 
@@ -13,25 +14,21 @@ function Home() {
         {name: 'Data Warehouse'},
     ]);
 
+    const [joinCreateBttn, setJoinCreateBttn] = useState(false)
+
     return (
         <> 
             {
-                classes.length === 0 ?
-                <div className='container'>
-                    <div className='x-axis'>
-                        <h1 className='bg heading'>No classes joined yet.</h1>
-                    </div>
-                    <JoinCreateClassBttn/>
-                </div>
-                :
+                !joinCreateBttn && 
                 <div className='x-axis'>
                     <div className='container'>
-                        <h1 className='bg heading'>Your classes</h1>
-                        <ClassBoxTemplate classes={classes}/>
+                        <h1 className='bg heading'>{classes.length === 0 ? "No classes joined yet.":"Your classes"}</h1>
+                        {classes.length !== 0 && <ClassBoxTemplate classes={classes}/>}
                     </div>
-                    <JoinCreateClassBttn/>
+                    <JoinCreateClassBttn joinCreateBttn={joinCreateBttn} setJoinCreateBttn={setJoinCreateBttn}/>
                 </div>
             }
+            {joinCreateBttn && <JoinCreateClass setJoinCreateBttn={setJoinCreateBttn}/>}
         </>
     )
 }
