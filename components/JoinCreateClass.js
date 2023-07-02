@@ -4,11 +4,14 @@ import React, { useState } from 'react'
 import '../styles/home.css'
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
+import Modal from 'react-modal';
 
 function JoinCreateClass({  setJoinCreateBttn }) {
 
     const [codeValue, setCodeValue] = useState('');
+    const [modalContent, setModalContent] = useState('');
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
         setJoinCreateBttn(false)
@@ -22,10 +25,35 @@ function JoinCreateClass({  setJoinCreateBttn }) {
     const handleJoinClass = () => {
         if(codeValue === '123'){
             console.log('success')
+            setIsOpen(true);
+            setModalContent("Class has been joined successfully.")
         } else {
             console.log('error')
+            setIsOpen(true);
+            setModalContent("Couldn't join this class with that code. Double-check the code or try another one.")
         }
     }
+
+    const handleCloseModal = () => {
+        setIsOpen(false);
+    };
+
+    const customStyles = {
+        overlay: {
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        content: {
+            background: '#fff',
+            padding: '2rem',
+            borderRadius: '4px',
+            width: 'fit-content',
+            margin: 'auto',
+            height: 'fit-content', 
+          },
+      };
 
     return (
         <>
@@ -72,10 +100,26 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                             height: '25px', marginTop: '10px'}}
                         onClick={handleJoinClass}
                         >
-                        Join class
+                            Join class
                     </button>
                 </div>
             </div>
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={handleCloseModal}
+                contentLabel="Example Modal"
+                style={customStyles}
+            >
+                <p style={{color: 'black'}}>{modalContent}</p>
+                <button 
+                    className='bttn' 
+                    onClick={handleCloseModal} 
+                    style={{width: '75px', fontSize: '14px', 
+                            height: '35px', marginTop: '10px'}}
+                    >
+                        Ok
+                </button>
+            </Modal>
         </>
     )
 }
