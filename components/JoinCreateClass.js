@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/home.css'
 import '../styles/form.css'
+import '../styles/create-class.css'
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
 import Modal from 'react-modal';
@@ -13,8 +14,25 @@ function JoinCreateClass({  setJoinCreateBttn }) {
     const [joinModalContent, setJoinModalContent] = useState('');
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
     const [joinModalOpen, setJoinModal] = useState(false);
-    
     const [createModalOpen, setCreateModal] = useState(false);
+    const [codeModalOpen, setCodeModal] = useState(false);
+    const [showOverlay, setShowOverlay] = useState(false);
+
+    const handleCopy = () => {
+        setShowOverlay(true);
+    };
+
+    useEffect(() => {
+        if (showOverlay) {
+          const timeout = setTimeout(() => {
+            setShowOverlay(false);
+          }, 2000);
+    
+          return () => {
+            clearTimeout(timeout);
+          };
+        }
+      }, [showOverlay]);
 
     const handleClick = () => {
         setJoinCreateBttn(false)
@@ -46,6 +64,10 @@ function JoinCreateClass({  setJoinCreateBttn }) {
         setCreateModal(false);
     }
 
+    const handleCodeCloseModal = () => {
+        setCodeModal(false);
+    }
+
     const handleCreateClass = () => {
         setCreateModal(true)
     }
@@ -53,6 +75,7 @@ function JoinCreateClass({  setJoinCreateBttn }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleCreateCloseModal()
+        setCodeModal(true)
         console.log(formData);
         setFormData({className: '', classDesc: ''})
     }
@@ -186,6 +209,34 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                             Ok
                     </button>
                 </form>
+            </Modal>
+            <Modal
+                ariaHideApp={false}
+                isOpen={codeModalOpen}
+                onRequestClose={handleCodeCloseModal}
+                style={customStyles}
+            >
+                <p style={{color: 'black'}}>
+                    Your class has been successfully created.<br/>
+                    To invite students to join this class, please share the following code with them:<br/>
+                    <div className='contain' onClick={handleCopy}>
+                        Class Code: <a className='code-link'>#123abc</a><br/>
+                        {
+                            showOverlay && 
+                                <div className="overlay">
+                                    Copied
+                                </div>}
+                    </div>
+                    Students can use this code to join your class.
+                </p>
+                <button 
+                    className='bttn' 
+                    onClick={handleCodeCloseModal} 
+                    style={{width: '75px', fontSize: '14px', 
+                            height: '35px', marginTop: '10px'}}
+                    >
+                        Ok
+                </button>
             </Modal>
         </>
     )
