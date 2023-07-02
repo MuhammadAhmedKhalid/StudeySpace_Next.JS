@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef  } from 'react'
 import '../styles/home.css'
 import '../styles/form.css'
 import '../styles/create-class.css'
@@ -17,6 +17,8 @@ function JoinCreateClass({  setJoinCreateBttn }) {
     const [createModalOpen, setCreateModal] = useState(false);
     const [codeModalOpen, setCodeModal] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
+
+    const textRef = useRef(null);
 
     const handleCopy = () => {
         setShowOverlay(true);
@@ -89,6 +91,13 @@ function JoinCreateClass({  setJoinCreateBttn }) {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+
+    const copyText = () => {
+        if (textRef.current) {
+            const text = textRef.current.innerText;
+            navigator.clipboard.writeText(text);
+        }
     }
 
     const customStyles = {
@@ -220,7 +229,7 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                     Your class has been successfully created.<br/>
                     To invite students to join this class, please share the following code with them:<br/>
                     <div className='contain' onClick={handleCopy}>
-                        Class Code: <a className='code-link'>#123abc</a><br/>
+                        Class Code: <a ref={textRef} onClick={copyText} className='code-link'>#123abc</a><br/>
                         {
                             showOverlay && 
                                 <div className="overlay">
