@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import '../styles/home.css'
+import '../styles/form.css'
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
 import Modal from 'react-modal';
@@ -9,9 +10,11 @@ import Modal from 'react-modal';
 function JoinCreateClass({  setJoinCreateBttn }) {
 
     const [codeValue, setCodeValue] = useState('');
-    const [modalContent, setModalContent] = useState('');
+    const [joinModalContent, setJoinModalContent] = useState('');
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+    const [joinModalOpen, setJoinModal] = useState(false);
+    
+    const [createModalOpen, setCreateModal] = useState(false);
 
     const handleClick = () => {
         setJoinCreateBttn(false)
@@ -25,18 +28,45 @@ function JoinCreateClass({  setJoinCreateBttn }) {
     const handleJoinClass = () => {
         if(codeValue === '123'){
             console.log('success')
-            setIsOpen(true);
-            setModalContent("Class has been joined successfully.")
+            setJoinModal(true);
+            setJoinModalContent("Class has been joined successfully.")
+            setCodeValue('');
         } else {
             console.log('error')
-            setIsOpen(true);
-            setModalContent("Couldn't join this class with that code. Double-check the code or try another one.")
+            setJoinModal(true);
+            setJoinModalContent("Couldn't join this class with that code. Double-check the code or try another one.")
         }
     }
 
-    const handleCloseModal = () => {
-        setIsOpen(false);
+    const handleJoinCloseModal = () => {
+        setJoinModal(false);
     };
+
+    const handleCreateCloseModal = () => {
+        setCreateModal(false);
+    }
+
+    const handleCreateClass = () => {
+        setCreateModal(true)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleCreateCloseModal()
+        console.log(formData);
+        setFormData({className: '', classDesc: ''})
+    }
+
+    const [formData, setFormData] = useState({
+        className: '',
+        classDesc: ''
+    });
+
+    const { className, classDesc } = formData;
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
 
     const customStyles = {
         overlay: {
@@ -72,6 +102,7 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                     </div>
                     <h2>Create a class</h2>
                     <button 
+                        onClick={handleCreateClass}
                         className='bttn' 
                         style={{width: '120px', fontSize: '12px', 
                             height: '30px', marginTop: '17.5px'}}
@@ -105,20 +136,56 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                 </div>
             </div>
             <Modal
-                isOpen={isOpen}
-                onRequestClose={handleCloseModal}
-                contentLabel="Example Modal"
+                ariaHideApp={false}
+                isOpen={joinModalOpen}
+                onRequestClose={handleJoinCloseModal}
                 style={customStyles}
             >
-                <p style={{color: 'black'}}>{modalContent}</p>
+                <p style={{color: 'black'}}>{joinModalContent}</p>
                 <button 
                     className='bttn' 
-                    onClick={handleCloseModal} 
+                    onClick={handleJoinCloseModal} 
                     style={{width: '75px', fontSize: '14px', 
                             height: '35px', marginTop: '10px'}}
                     >
                         Ok
                 </button>
+            </Modal>
+            <Modal
+                ariaHideApp={false}
+                isOpen={createModalOpen}
+                onRequestClose={handleCreateCloseModal}
+                style={customStyles}
+            >
+                <h2 style={{fontWeight: 'bold', marginBottom: '25px'}}>Create your class</h2>
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        autoFocus
+                        required 
+                        className='input' 
+                        placeholder='Class name'
+                        value={className}
+                        onChange={handleChange}
+                        name="className"
+                    />
+                    <textarea 
+                        rows='4'
+                        required 
+                        className='input' 
+                        placeholder='Description'
+                        value={classDesc}
+                        onChange={handleChange}
+                        name="classDesc"
+                    />
+                    <button 
+                        type='submit'
+                        className='bttn' 
+                        style={{width: '75px', fontSize: '14px', 
+                                height: '35px', marginTop: '10px'}}
+                        >
+                            Ok
+                    </button>
+                </form>
             </Modal>
         </>
     )
