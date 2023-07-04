@@ -18,11 +18,18 @@ import Button from '@mui/material/Button';
 import { useRouter } from 'next/navigation';
 
 const drawerWidth = 240;
-const navItems = ['About', 'Contact', 'Login'];
 
 function Navbar(props) {
 
   const [currentPage, setCurrentPage] = useState('home');
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  let navItems;
+  if(!loggedIn) {
+    navItems = ['About', 'Contact', 'Login'];
+  } else {
+    navItems = ['Logout'];
+  }
 
   const router = useRouter();
 
@@ -33,8 +40,21 @@ function Navbar(props) {
   useEffect(() => {
     if(currentPage === 'About') router.push('/about-us');
     else if (currentPage === 'Contact') router.push('/contact-us');
-    else if (currentPage === 'Login') router.push('/home');
-    else router.push('/');
+    else if (currentPage === 'Login') {
+      setLoggedIn(true)
+      router.push('/home');
+    }
+    else if (currentPage === 'Logout'){
+      setLoggedIn(false)
+      router.push('/');
+    }
+    else{
+      if(loggedIn){
+         router.push('/home');
+      } else {
+         router.push('/');
+      }
+    }
   }, [currentPage])
 
   const { window } = props;
