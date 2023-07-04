@@ -1,0 +1,13 @@
+.animated-block {
+    position: fixed;
+    bottom: -100%; 
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-color: #ffffff;
+    transition: bottom 0.5s ease-in-out; 
+}
+  
+.animated-block.show {
+    bottom: 0; 
+}

@@ -101,3 +101,8 @@
     width: 1488px; 
     justify-content: flex-start;
 }
+
+.blurred {
+    filter: blur(0.8px); 
+    pointer-events: none;
+  }
