@@ -1,13 +1,35 @@
 .animated-block {
-    position: fixed;
-    bottom: -100%; 
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background-color: #ffffff;
-    transition: bottom 0.5s ease-in-out; 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #0a002c;
+  transition: height 0.5s ease-in-out;
+  overflow: hidden;
+  padding: 25px;
+}
+
+.animated-block.show {
+  height: 166px;
 }
   
-.animated-block.show {
-    bottom: 0; 
+.row{
+  display: flex;
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.row-icon {
+  height: 21;
+  width: 21;
+  color: #c72e2e;
+  margin-right: 10px;
+}
+
+.row-text {
+  color: white;
+  font-size: 15px;
 }
