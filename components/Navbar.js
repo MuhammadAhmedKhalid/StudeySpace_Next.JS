@@ -41,12 +41,12 @@ function Navbar(props) {
     if(currentPage === 'About') router.push('/about-us');
     else if (currentPage === 'Contact') router.push('/contact-us');
     else if (currentPage === 'Login') {
-      setLoggedIn(true)
       router.push('/home');
+      setLoggedIn(true)
     }
     else if (currentPage === 'Logout'){
-      setLoggedIn(false)
       router.push('/');
+      setLoggedIn(false)
     }
     else{
       if(loggedIn){
