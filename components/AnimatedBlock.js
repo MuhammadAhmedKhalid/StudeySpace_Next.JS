@@ -11,7 +11,7 @@ function AnimatedBlock({isBlockVisible, blockRef}) {
         >
             <div className='row'>
                 <AddIcon className='row-icon'/>
-                <h2 className='row-text'>Create new class</h2>
+                <h2 className='row-text'>Create a class</h2>
             </div>
             <div className='row'>
                 <BiHash size={21} color='#c72e2e' style={{marginRight: '10px'}}/>
