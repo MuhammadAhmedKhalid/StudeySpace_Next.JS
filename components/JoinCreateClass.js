@@ -6,15 +6,10 @@ import '../styles/form.css'
 import '../styles/create-class.css'
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
-import Modal from 'react-modal';
 import JoinClassForm from './JoinClassForm';
 
 function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent }) {
 
-    // const [codeValue, setCodeValue] = useState('');
-    // const [joinModalContent, setJoinModalContent] = useState('');
-    // const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-    // const [joinModalOpen, setJoinModal] = useState(false);
     // const [createModalOpen, setCreateModal] = useState(false);
     // const [codeModalOpen, setCodeModal] = useState(false);
     // const [showOverlay, setShowOverlay] = useState(false);
@@ -58,10 +53,6 @@ function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent
     //         setJoinModalContent("Couldn't join this class with that code. Double-check the code or try another one.")
     //     }
     // }
-
-    // const handleJoinCloseModal = () => {
-    //     setJoinModal(false);
-    // };
 
     // const handleCreateCloseModal = () => {
     //     setCreateModal(false);
@@ -152,39 +143,8 @@ function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent
                     </div>
                     <h2 style={{fontSize: '14px'}}>Join a class with a code</h2>
                     <JoinClassForm setJoinModal={setJoinModal} setJoinModalContent={setJoinModalContent}/>
-                    {/* <input
-                        type='text'
-                        value={codeValue}
-                        onChange={handleCodeChange}
-                        className='code-input' 
-                        placeholder='Enter code'/>
-                    <button
-                        disabled={!isButtonEnabled}
-                        className='bttn' 
-                        style={{width: '100px', fontSize: '10px', 
-                            height: '25px', marginTop: '10px'}}
-                        onClick={handleJoinClass}
-                        >
-                            Join class
-                    </button> */}
                 </div>
             </div>
-            {/* <Modal
-                ariaHideApp={false}
-                isOpen={joinModalOpen}
-                onRequestClose={handleJoinCloseModal}
-                style={customStyles}
-            >
-                <p style={{color: 'black'}}>{joinModalContent}</p>
-                <button 
-                    className='bttn' 
-                    onClick={handleJoinCloseModal} 
-                    style={{width: '75px', fontSize: '14px', 
-                            height: '35px', marginTop: '10px'}}
-                    >
-                        Ok
-                </button>
-            </Modal> */}
             {/* <Modal
                 ariaHideApp={false}
                 isOpen={createModalOpen}

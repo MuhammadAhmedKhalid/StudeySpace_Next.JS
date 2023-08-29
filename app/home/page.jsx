@@ -8,6 +8,7 @@ import JoinCreateClass from '@components/JoinCreateClass';
 import ClassRectangleTemplate from '@components/ClassRectangleTemplate';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AnimatedBlock from '@components/AnimatedBlock';
+import JoinClass from '@modals/JoinClass';
 
 function Home() {
 
@@ -73,6 +74,7 @@ function Home() {
             {joinCreateBttn && <JoinCreateClass setJoinCreateBttn={setJoinCreateBttn} setJoinModal={setJoinModal} 
                 setJoinModalContent={setJoinModalContent}/>}
             {isBlockVisible && <AnimatedBlock isBlockVisible={isBlockVisible} blockRef={blockRef}/>}
+            {joinModalOpen && <JoinClass joinModalOpen={joinModalOpen} joinModalContent={joinModalContent} setJoinModal={setJoinModal}/>}
         </>
     )
 }
