@@ -22,6 +22,8 @@ function Home() {
     const [joinCreateBttn, setJoinCreateBttn] = useState(false)
     const [isBlockVisible, setBlockVisible] = useState(false);
     const [isBlurred, setIsBlurred] = useState(false);
+    const [joinModalOpen, setJoinModal] = useState(false);
+    const [joinModalContent, setJoinModalContent] = useState('');
 
     const blockRef = useRef(null);
 
@@ -68,7 +70,8 @@ function Home() {
                     </div>
                 </div>
             }
-            {joinCreateBttn && <JoinCreateClass setJoinCreateBttn={setJoinCreateBttn}/>}
+            {joinCreateBttn && <JoinCreateClass setJoinCreateBttn={setJoinCreateBttn} setJoinModal={setJoinModal} 
+                setJoinModalContent={setJoinModalContent}/>}
             {isBlockVisible && <AnimatedBlock isBlockVisible={isBlockVisible} blockRef={blockRef}/>}
         </>
     )

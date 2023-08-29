@@ -7,115 +7,116 @@ import '../styles/create-class.css'
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
 import Modal from 'react-modal';
+import JoinClassForm from './JoinClassForm';
 
-function JoinCreateClass({  setJoinCreateBttn }) {
+function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent }) {
 
-    const [codeValue, setCodeValue] = useState('');
-    const [joinModalContent, setJoinModalContent] = useState('');
-    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-    const [joinModalOpen, setJoinModal] = useState(false);
-    const [createModalOpen, setCreateModal] = useState(false);
-    const [codeModalOpen, setCodeModal] = useState(false);
-    const [showOverlay, setShowOverlay] = useState(false);
+    // const [codeValue, setCodeValue] = useState('');
+    // const [joinModalContent, setJoinModalContent] = useState('');
+    // const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+    // const [joinModalOpen, setJoinModal] = useState(false);
+    // const [createModalOpen, setCreateModal] = useState(false);
+    // const [codeModalOpen, setCodeModal] = useState(false);
+    // const [showOverlay, setShowOverlay] = useState(false);
 
-    const textRef = useRef(null);
+    // const textRef = useRef(null);
 
-    const handleCopy = () => {
-        setShowOverlay(true);
-    };
+    // const handleCopy = () => {
+    //     setShowOverlay(true);
+    // };
 
-    useEffect(() => {
-        if (showOverlay) {
-          const timeout = setTimeout(() => {
-            setShowOverlay(false);
-          }, 2000);
+    // useEffect(() => {
+    //     if (showOverlay) {
+    //       const timeout = setTimeout(() => {
+    //         setShowOverlay(false);
+    //       }, 2000);
     
-          return () => {
-            clearTimeout(timeout);
-          };
-        }
-      }, [showOverlay]);
+    //       return () => {
+    //         clearTimeout(timeout);
+    //       };
+    //     }
+    //   }, [showOverlay]);
 
     const handleClick = () => {
         setJoinCreateBttn(false)
     }
 
-    const handleCodeChange = (e) => {
-        setCodeValue(e.target.value)
-        setIsButtonEnabled(e.target.value !== '')
-    }
+    // const handleCodeChange = (e) => {
+    //     setCodeValue(e.target.value)
+    //     setIsButtonEnabled(e.target.value !== '')
+    // }
 
-    const handleJoinClass = () => {
-        if(codeValue === '123'){
-            console.log('success')
-            setJoinModal(true);
-            setJoinModalContent("Class has been joined successfully.")
-            setCodeValue('');
-        } else {
-            console.log('error')
-            setJoinModal(true);
-            setJoinModalContent("Couldn't join this class with that code. Double-check the code or try another one.")
-        }
-    }
+    // const handleJoinClass = () => {
+    //     if(codeValue === '123'){
+    //         console.log('success')
+    //         setJoinModal(true);
+    //         setJoinModalContent("Class has been joined successfully.")
+    //         setCodeValue('');
+    //     } else {
+    //         console.log('error')
+    //         setJoinModal(true);
+    //         setJoinModalContent("Couldn't join this class with that code. Double-check the code or try another one.")
+    //     }
+    // }
 
-    const handleJoinCloseModal = () => {
-        setJoinModal(false);
-    };
+    // const handleJoinCloseModal = () => {
+    //     setJoinModal(false);
+    // };
 
-    const handleCreateCloseModal = () => {
-        setCreateModal(false);
-    }
+    // const handleCreateCloseModal = () => {
+    //     setCreateModal(false);
+    // }
 
-    const handleCodeCloseModal = () => {
-        setCodeModal(false);
-    }
+    // const handleCodeCloseModal = () => {
+    //     setCodeModal(false);
+    // }
 
-    const handleCreateClass = () => {
-        setCreateModal(true)
-    }
+    // const handleCreateClass = () => {
+    //     setCreateModal(true)
+    // }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        handleCreateCloseModal()
-        setCodeModal(true)
-        console.log(formData);
-        setFormData({className: '', classDesc: ''})
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     handleCreateCloseModal()
+    //     setCodeModal(true)
+    //     console.log(formData);
+    //     setFormData({className: '', classDesc: ''})
+    // }
 
-    const [formData, setFormData] = useState({
-        className: '',
-        classDesc: ''
-    });
+    // const [formData, setFormData] = useState({
+    //     className: '',
+    //     classDesc: ''
+    // });
 
-    const { className, classDesc } = formData;
+    // const { className, classDesc } = formData;
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
+    // const handleChange = (e) => {
+    //     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // }
 
-    const copyText = () => {
-        if (textRef.current) {
-            const text = textRef.current.innerText;
-            navigator.clipboard.writeText(text);
-        }
-    }
+    // const copyText = () => {
+    //     if (textRef.current) {
+    //         const text = textRef.current.innerText;
+    //         navigator.clipboard.writeText(text);
+    //     }
+    // }
 
-    const customStyles = {
-        overlay: {
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
-        content: {
-            background: '#fff',
-            padding: '2rem',
-            borderRadius: '4px',
-            width: 'fit-content',
-            margin: 'auto',
-            height: 'fit-content', 
-          },
-      };
+    // const customStyles = {
+    //     overlay: {
+    //       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    //       display: 'flex',
+    //       justifyContent: 'center',
+    //       alignItems: 'center',
+    //     },
+    //     content: {
+    //         background: '#fff',
+    //         padding: '2rem',
+    //         borderRadius: '4px',
+    //         width: 'fit-content',
+    //         margin: 'auto',
+    //         height: 'fit-content', 
+    //       },
+    //   };
 
     return (
         <>
@@ -134,7 +135,7 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                     </div>
                     <h2>Create a class</h2>
                     <button 
-                        onClick={handleCreateClass}
+                        // onClick={handleCreateClass}
                         className='bttn' 
                         style={{width: '120px', fontSize: '12px', 
                             height: '30px', marginTop: '17.5px'}}
@@ -150,7 +151,8 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                     </p>
                     </div>
                     <h2 style={{fontSize: '14px'}}>Join a class with a code</h2>
-                    <input
+                    <JoinClassForm setJoinModal={setJoinModal} setJoinModalContent={setJoinModalContent}/>
+                    {/* <input
                         type='text'
                         value={codeValue}
                         onChange={handleCodeChange}
@@ -164,10 +166,10 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                         onClick={handleJoinClass}
                         >
                             Join class
-                    </button>
+                    </button> */}
                 </div>
             </div>
-            <Modal
+            {/* <Modal
                 ariaHideApp={false}
                 isOpen={joinModalOpen}
                 onRequestClose={handleJoinCloseModal}
@@ -182,8 +184,8 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                     >
                         Ok
                 </button>
-            </Modal>
-            <Modal
+            </Modal> */}
+            {/* <Modal
                 ariaHideApp={false}
                 isOpen={createModalOpen}
                 onRequestClose={handleCreateCloseModal}
@@ -218,8 +220,8 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                             Ok
                     </button>
                 </form>
-            </Modal>
-            <Modal
+            </Modal> */}
+            {/* <Modal
                 ariaHideApp={false}
                 isOpen={codeModalOpen}
                 onRequestClose={handleCodeCloseModal}
@@ -246,7 +248,7 @@ function JoinCreateClass({  setJoinCreateBttn }) {
                     >
                         Ok
                 </button>
-            </Modal>
+            </Modal> */}
         </>
     )
 }
