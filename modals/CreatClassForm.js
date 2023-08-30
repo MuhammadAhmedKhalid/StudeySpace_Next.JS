@@ -18,10 +18,6 @@ function CreatClassForm({createModalOpen, setCreateModal, setCodeModal}) {
       setCreateModal(false);
   }
 
-  const handleCodeCloseModal = () => {
-      setCodeModal(false);
-  }
-
   const handleSubmit = (e) => {
       e.preventDefault();
       handleCreateCloseModal()

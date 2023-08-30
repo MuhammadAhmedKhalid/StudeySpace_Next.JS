@@ -10,6 +10,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AnimatedBlock from '@components/AnimatedBlock';
 import JoinClass from '@modals/JoinClass';
 import CreatClassForm from '@modals/CreatClassForm';
+import ClassCode from '@modals/ClassCode';
 
 function Home() {
 
@@ -79,6 +80,7 @@ function Home() {
             {isBlockVisible && <AnimatedBlock isBlockVisible={isBlockVisible} blockRef={blockRef}/>}
             {joinModalOpen && <JoinClass joinModalOpen={joinModalOpen} joinModalContent={joinModalContent} setJoinModal={setJoinModal}/>}
             {createModalOpen && <CreatClassForm createModalOpen={createModalOpen} setCreateModal={setCreateModal} setCodeModal={setCodeModal}/>}
+            {codeModalOpen && <ClassCode codeModalOpen={codeModalOpen} setCodeModal={setCodeModal}/>}
         </>
     )
 }
