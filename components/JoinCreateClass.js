@@ -8,7 +8,7 @@ import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
 import JoinClassForm from './JoinClassForm';
 
-function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent }) {
+function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent, setCreateModal }) {
 
     // const [createModalOpen, setCreateModal] = useState(false);
     // const [codeModalOpen, setCodeModal] = useState(false);
@@ -62,9 +62,9 @@ function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent
     //     setCodeModal(false);
     // }
 
-    // const handleCreateClass = () => {
-    //     setCreateModal(true)
-    // }
+    const handleCreateClass = () => {
+        setCreateModal(true)
+    }
 
     // const handleSubmit = (e) => {
     //     e.preventDefault();
@@ -126,7 +126,7 @@ function JoinCreateClass({  setJoinCreateBttn, setJoinModal, setJoinModalContent
                     </div>
                     <h2>Create a class</h2>
                     <button 
-                        // onClick={handleCreateClass}
+                        onClick={handleCreateClass}
                         className='bttn' 
                         style={{width: '120px', fontSize: '12px', 
                             height: '30px', marginTop: '17.5px'}}

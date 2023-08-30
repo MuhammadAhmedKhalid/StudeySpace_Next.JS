@@ -9,6 +9,7 @@ import ClassRectangleTemplate from '@components/ClassRectangleTemplate';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AnimatedBlock from '@components/AnimatedBlock';
 import JoinClass from '@modals/JoinClass';
+import CreatClassForm from '@modals/CreatClassForm';
 
 function Home() {
 
@@ -25,6 +26,8 @@ function Home() {
     const [isBlurred, setIsBlurred] = useState(false);
     const [joinModalOpen, setJoinModal] = useState(false);
     const [joinModalContent, setJoinModalContent] = useState('');
+    const [createModalOpen, setCreateModal] = useState(false);
+    const [codeModalOpen, setCodeModal] = useState(false);
 
     const blockRef = useRef(null);
 
@@ -72,9 +75,10 @@ function Home() {
                 </div>
             }
             {joinCreateBttn && <JoinCreateClass setJoinCreateBttn={setJoinCreateBttn} setJoinModal={setJoinModal} 
-                setJoinModalContent={setJoinModalContent}/>}
+                setJoinModalContent={setJoinModalContent} setCreateModal={setCreateModal}/>}
             {isBlockVisible && <AnimatedBlock isBlockVisible={isBlockVisible} blockRef={blockRef}/>}
             {joinModalOpen && <JoinClass joinModalOpen={joinModalOpen} joinModalContent={joinModalContent} setJoinModal={setJoinModal}/>}
+            {createModalOpen && <CreatClassForm createModalOpen={createModalOpen} setCreateModal={setCreateModal} setCodeModal={setCodeModal}/>}
         </>
     )
 }
