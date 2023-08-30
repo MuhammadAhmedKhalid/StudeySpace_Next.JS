@@ -77,7 +77,8 @@ function Home() {
             }
             {joinCreateBttn && <JoinCreateClass setJoinCreateBttn={setJoinCreateBttn} setJoinModal={setJoinModal} 
                 setJoinModalContent={setJoinModalContent} setCreateModal={setCreateModal}/>}
-            {isBlockVisible && <AnimatedBlock isBlockVisible={isBlockVisible} blockRef={blockRef}/>}
+            {isBlockVisible && <AnimatedBlock isBlockVisible={isBlockVisible} blockRef={blockRef} setCreateModal={setCreateModal}
+                setJoinModal={setJoinModal} setJoinModalContent={setJoinModalContent}/>}
             {joinModalOpen && <JoinClass joinModalOpen={joinModalOpen} joinModalContent={joinModalContent} setJoinModal={setJoinModal}/>}
             {createModalOpen && <CreatClassForm createModalOpen={createModalOpen} setCreateModal={setCreateModal} setCodeModal={setCodeModal}/>}
             {codeModalOpen && <ClassCode codeModalOpen={codeModalOpen} setCodeModal={setCodeModal}/>}
