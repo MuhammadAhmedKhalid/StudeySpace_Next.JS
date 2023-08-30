@@ -15,6 +15,7 @@ function JoinClassForm({setJoinModal, setJoinModalContent}) {
             setJoinModal(true);
             setJoinModalContent("Class has been joined successfully.")
             setCodeValue('');
+            setIsButtonEnabled(false)
         } else {
             setJoinModal(true);
             setJoinModalContent("Couldn't join this class with that code. Double-check the code or try another one.")
