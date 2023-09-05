@@ -11,6 +11,7 @@ import AnimatedBlock from '@components/AnimatedBlock';
 import JoinClass from '@modals/JoinClass';
 import CreatClassForm from '@modals/CreatClassForm';
 import ClassCode from '@modals/ClassCode';
+import ClassDetials from '@components/ClassDetials';
 
 function Home() {
 
@@ -29,6 +30,8 @@ function Home() {
     const [joinModalContent, setJoinModalContent] = useState('');
     const [createModalOpen, setCreateModal] = useState(false);
     const [codeModalOpen, setCodeModal] = useState(false);
+    const [classDetails, setShowClassDetails] = useState(false);
+    const [classInfo, setInfo] = useState();
 
     const blockRef = useRef(null);
 
@@ -59,18 +62,23 @@ function Home() {
                 <div className={`App ${isBlurred ? 'blurred' : ''}`}>
                     <div className='x-axis'>
                         <div className='container'>
-                            <h1 className='bg heading'>{classes.length === 0 ? "No classes joined yet.":"Your classes"}</h1>
+                            <h1 className='bg heading'>{!classDetails&&(classes.length === 0 ? "No classes joined yet.":"Your classes")}</h1>
                             {
                                 classes.length !== 0 && 
-                                (!isMobile ? <ClassBoxTemplate classes={classes}/> : <ClassRectangleTemplate classes={classes}/>)
+                                !classDetails ? 
+                                (!isMobile ? 
+                                <ClassBoxTemplate classes={classes} setShowClassDetails={setShowClassDetails} setInfo={setInfo}/> : 
+                                <ClassRectangleTemplate classes={classes} setShowClassDetails={setShowClassDetails} setInfo={setInfo}/>) :
+                                <ClassDetials classInfo={classInfo} setShowClassDetails={setShowClassDetails}/>
                             }
                         </div>
                         {
-                            !isMobile ? <JoinCreateClassBttn joinCreateBttn={joinCreateBttn} setJoinCreateBttn={setJoinCreateBttn}/>
+                            !classDetails &&
+                            (!isMobile ? <JoinCreateClassBttn setJoinCreateBttn={setJoinCreateBttn}/>
                             : 
                             <div className='icon-style' onClick={handleClick}>
                                 <MoreVertIcon/>
-                            </div>
+                            </div>)
                         }
                     </div>
                 </div>

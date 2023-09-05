@@ -1,14 +1,20 @@
 import React from 'react'
 import '../styles/home.css'
 
-function ClassRectangleTemplate({classes}) {
+function ClassRectangleTemplate({classes, setShowClassDetails, setInfo}) {
+
+  const showDeatils = (details) => {
+    setShowClassDetails(true);
+    setInfo(details);
+    console.log(details)
+  }
 
   return (
     <div className='boundary'  
       style={{marginBottom: '225px', marginLeft: '25px'}}>
         {
             classes.map((item, index) => (
-              <div className='rectangle-box' key={index}>
+              <div className='rectangle-box' key={index} onClick={()=>showDeatils(item)}>
                 <div className='x-axis' 
                   style={{background: 'white', justifyContent: 'left', marginLeft: '15px'}}>
                   <div className='nested-s-box'>

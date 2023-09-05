@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/home.css'
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
-function JoinCreateClassBttn({ joinCreateBttn, setJoinCreateBttn }) {
+function JoinCreateClassBttn({ setJoinCreateBttn }) {
 
   const handleClick = () => {
     setJoinCreateBttn(true)
